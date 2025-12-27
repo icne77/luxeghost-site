@@ -1,0 +1,99 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BASE */
+body {
+  background: #000;
+  color: #cfcfcf;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
+}
+
+/* NAV */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 48px;
+  border-bottom: 1px solid #111;
+}
+
+.logo {
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.nav a {
+  color: #cfcfcf;
+  margin-left: 24px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.nav a:hover {
+  color: #ffffff;
+}
+
+/* HERO */
+.hero {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 48px;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.subtext {
+  max-width: 600px;
+  font-size: 16px;
+  opacity: 0.85;
+}
+
+/* CTA */
+.cta {
+  margin-top: 32px;
+}
+
+.btn {
+  padding: 12px 28px;
+  margin-right: 16px;
+  text-decoration: none;
+  font-size: 14px;
+  border: 1px solid #333;
+}
+
+.primary {
+  background: #ffffff;
+  color: #000;
+}
+
+.ghost {
+  color: #cfcfcf;
+}
+
+/* MANIFESTO */
+.manifesto {
+  padding: 48px;
+  border-top: 1px solid #111;
+  max-width: 800px;
+}
+
+.manifesto p {
+  margin-bottom: 16px;
+}
+
+/* FOOTER */
+footer {
+  padding: 24px 48px;
+  font-size: 12px;
+  opacity: 0.6;
+}
