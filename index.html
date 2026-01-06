@@ -1,1610 +1,499 @@
+<!doctype html>
+<html lang="en">
 <head>
-
-
   <meta charset="utf-8" />
-
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-
-
   <meta name="description" content="LuxeGhost — Operator-grade cybersecurity for everyday people, businesses, and high-risk professionals. Intel drops, consulting, and Ghost Protocol." />
-
-
-  <meta name="description" content="LuxeGhost — Operator-grade cybersecurity for everyday people, businesses, and high-risk professionals." />
-
   <title>LuxeGhost</title>
 
-
-
-
   <style>
-
-
     :root{
-
-
       --bg:#0b0d10;
-
-
       --panel:#11151b;
-
-
       --panel2:#0f1318;
-
-
       --text:#e7eaf0;
-
-
       --muted:#a9b1c2;
-
-
       --line:#222a35;
-
-
       --accent:#d6b36a; /* dark-lux gold */
-
-
       --accent2:#7aa2ff; /* cold op blue */
-
-
       --danger:#ff6b6b;
-
-
       --shadow: 0 10px 30px rgba(0,0,0,.35);
-
-
       --radius:18px;
-
-
       --radius2:26px;
-
-
       --max:1100px;
-
-
       --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-
-
       --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-
-
     }
-
-
-
-
 
     *{box-sizing:border-box}
-
-
     html,body{height:100%}
-
-
     body{
-
-
       margin:0;
-
-
       font-family:var(--sans);
-
-
       background:
-
-
         radial-gradient(1200px 600px at 70% -10%, rgba(122,162,255,.12), transparent 60%),
-
-
         radial-gradient(900px 500px at 20% 0%, rgba(214,179,106,.10), transparent 55%),
-
-
         linear-gradient(180deg, var(--bg), #07090c 60%, #05070a);
-
-
       color:var(--text);
-
-
       line-height:1.45;
-
-
     }
-
-
-
-
 
     a{color:inherit; text-decoration:none}
-
-
     .wrap{max-width:var(--max); margin:0 auto; padding:24px}
-
-
     .topbar{
-
-
       position:sticky; top:0; z-index:50;
-
-
       background:rgba(11,13,16,.72);
-
-
       border-bottom:1px solid rgba(34,42,53,.7);
-
-
       backdrop-filter: blur(10px);
-
-
     }
-
-
-
-
 
     .nav{
-
-
       display:flex; align-items:center; justify-content:space-between;
-
-
       gap:14px;
-
-
       padding:14px 24px;
-
-
       max-width:var(--max);
-
-
       margin:0 auto;
-
-
     }
-
-
-
-
 
     .brand{
-
-
       display:flex; align-items:center; gap:10px;
-
-
       letter-spacing:.6px;
-
-
       font-weight:700;
-
-
     }
-
-
     .brand .mark{
-
-
       width:34px; height:34px;
-
-
       border-radius:10px;
-
-
       background:
-
-
         linear-gradient(135deg, rgba(214,179,106,.28), rgba(122,162,255,.20)),
-
-
         radial-gradient(18px 18px at 30% 30%, rgba(255,255,255,.22), transparent 60%);
-
-
       border:1px solid rgba(214,179,106,.35);
-
-
       box-shadow: var(--shadow);
-
-
     }
-
-
     .brand .name{font-size:14px}
-
-
     .brand .tag{font-size:11px; color:var(--muted); font-family:var(--mono); margin-top:2px}
 
-
-
-
-
     .links{
-
-
       display:flex; align-items:center; gap:10px;
-
-
       flex-wrap:wrap;
-
-
       justify-content:flex-end;
-
-
     }
-
-
-
-
 
     .pill{
-
-
       padding:10px 12px;
-
-
       border-radius:999px;
-
-
       border:1px solid rgba(34,42,53,.9);
-
-
       background:rgba(17,21,27,.55);
-
-
       color:var(--muted);
-
-
       font-size:13px;
-
-
       transition:.18s ease;
-
-
     }
-
-
     .pill:hover{transform:translateY(-1px); color:var(--text); border-color:rgba(214,179,106,.35)}
-
-
     .pill.active{color:var(--text); border-color:rgba(122,162,255,.45); background:rgba(122,162,255,.10)}
 
-
-
-
-
     .btn{
-
-
       display:inline-flex; align-items:center; justify-content:center;
-
-
       gap:10px;
-
-
       padding:12px 16px;
-
-
       border-radius:999px;
-
-
       border:1px solid rgba(34,42,53,.9);
-
-
       background:rgba(17,21,27,.55);
-
-
       color:var(--text);
-
-
       font-size:14px;
-
-
       transition:.18s ease;
-
-
       cursor:pointer;
-
-
       user-select:none;
-
-
     }
-
-
     .btn:hover{transform:translateY(-1px); border-color:rgba(214,179,106,.35)}
-
-
     .btn.primary{
-
-
       border-color:rgba(214,179,106,.45);
-
-
       background:linear-gradient(135deg, rgba(214,179,106,.24), rgba(17,21,27,.55));
-
-
     }
-
-
     .btn.ghost{
-
-
       border-color:rgba(122,162,255,.45);
-
-
       background:linear-gradient(135deg, rgba(122,162,255,.14), rgba(17,21,27,.55));
-
-
     }
-
-
-
-
 
     .hero{
-
-
       padding:44px 0 24px;
-
-
     }
-
-
     .grid{
-
-
       display:grid;
-
-
       grid-template-columns: 1.2fr .8fr;
-
-
       gap:18px;
-
-
     }
-
-
     @media (max-width: 940px){
-
-
       .grid{grid-template-columns:1fr}
-
-
       .links{justify-content:flex-start}
-
-
     }
-
-
-
-
 
     .card{
-
-
       background:linear-gradient(180deg, rgba(17,21,27,.82), rgba(15,19,24,.72));
-
-
       border:1px solid rgba(34,42,53,.95);
-
-
       border-radius:var(--radius2);
-
-
       box-shadow: var(--shadow);
-
-
       padding:22px;
-
-
     }
-
-
-
-
 
     h1{
-
-
       margin:0 0 10px;
-
-
       font-size:36px;
-
-
       line-height:1.08;
-
-
       letter-spacing:-.6px;
-
-
     }
-
-
     .sub{
-
-
       margin:0 0 18px;
-
-
       color:var(--muted);
-
-
       font-size:15px;
-
-
       max-width:60ch;
-
-
     }
-
-
     .badges{
-
-
       display:flex; flex-wrap:wrap; gap:8px; margin:16px 0 0;
-
-
     }
-
-
     .badge{
-
-
       padding:7px 10px;
-
-
       border-radius:999px;
-
-
       border:1px solid rgba(34,42,53,.95);
-
-
       background:rgba(15,19,24,.55);
-
-
       color:var(--muted);
-
-
       font-size:12px;
-
-
       font-family:var(--mono);
-
-
     }
-
-
-
-
 
     .section{
-
-
       padding:18px 0;
-
-
       scroll-margin-top: 90px;
-
-
     }
-
-
     .section h2{
-
-
       margin:0 0 8px;
-
-
       font-size:22px;
-
-
       letter-spacing:-.2px;
-
-
     }
-
-
     .section p{margin:0 0 12px; color:var(--muted)}
-
-
     .kicker{
-
-
       font-family:var(--mono);
-
-
       color:rgba(214,179,106,.9);
-
-
       font-size:12px;
-
-
       letter-spacing:.9px;
-
-
       text-transform:uppercase;
-
-
       margin-bottom:10px;
-
-
     }
-
-
-
-
 
     .split{
-
-
       display:grid;
-
-
       grid-template-columns: 1fr 1fr;
-
-
       gap:14px;
-
-
     }
-
-
     @media (max-width: 940px){
-
-
       .split{grid-template-columns:1fr}
-
-
     }
-
-
-
-
 
     .mini{
-
-
       border-radius:var(--radius);
-
-
       border:1px solid rgba(34,42,53,.95);
-
-
       background:rgba(15,19,24,.55);
-
-
       padding:16px;
-
-
     }
-
-
     .mini h3{
-
-
       margin:0 0 6px;
-
-
       font-size:15px;
-
-
     }
-
-
     .mini ul{margin:10px 0 0; padding-left:18px; color:var(--muted)}
-
-
     .mini li{margin:6px 0}
 
-
-
-
-
     .hr{
-
-
       height:1px; background:rgba(34,42,53,.9); margin:18px 0;
-
-
     }
-
-
-
-
 
     .footer{
-
-
       padding:30px 0 50px;
-
-
       color:var(--muted);
-
-
       font-size:12px;
-
-
       display:flex;
-
-
       flex-wrap:wrap;
-
-
       gap:10px;
-
-
       justify-content:space-between;
-
-
       align-items:center;
-
-
       border-top:1px solid rgba(34,42,53,.85);
-
-
       margin-top:22px;
-
-
     }
-
-
     .footlinks{display:flex; gap:10px; flex-wrap:wrap}
-
-
     .note{font-family:var(--mono); opacity:.9}
-
-
   </style>
-
-
-  <!-- Link external CSS -->
-
-
-  <link rel="stylesheet" href="/style.css" />
-
 </head>
 
-
-
 <body>
-
-
   <div class="topbar">
-
-
     <div class="nav">
-
-
-  <!-- TOP NAV -->
-
-
-  <header class="topbar">
-
-
-    <nav class="nav">
-
       <a class="brand" href="/" data-route="/">
-
-
         <div class="mark" aria-hidden="true"></div>
-
-
-        <div class="mark logo-box"></div>
-
         <div>
-
           <div class="name">LUXEGHOST</div>
-
-
           <div class="tag">real world intel · digital discipline · practical security</div>
-
-
-          <div class="tag">black ops · dark luxury · practical security</div>
-
         </div>
-
       </a>
 
-
-
-@@ -239,260 +29,158 @@
-
+      <div class="links">
+        <a class="pill" href="/intel" data-route="/intel">Intel</a>
+        <a class="pill" href="/consulting" data-route="/consulting">Consulting</a>
+        <a class="pill" href="/about" data-route="/about">About</a>
         <a class="pill" href="/connect" data-route="/connect">Connect</a>
-
-
 
         <a class="btn ghost" href="/intel" data-route="/intel">Access Intel</a>
-
-
         <a class="btn primary" href="https://t.me/ghvstp" target="_blank" rel="noopener">Enter Ghost Protocol</a>
-
-
-        <a class="btn primary" href="https://t.me/ghvstp" target="_blank" rel="noopener">
-
-
-          Enter Ghost Protocol
-
-
-        </a>
-
       </div>
-
-
     </div>
-
-
   </div>
 
-
-    </nav>
-
-
-  </header>
-
-
-
-
-  <!-- MAIN -->
-
   <main class="wrap">
-
-
-
-
     <!-- HERO -->
-
     <section class="hero card" id="home">
-
       <div class="grid">
-
         <div>
-
           <div class="kicker">Operator-grade security for real life</div>
-
           <h1>Move quiet. Reduce exposure. Keep control.</h1>
-
           <p class="sub">
-
-
             LuxeGhost is built for everyday people, businesses, and high-risk professionals who want practical security that
-
-
             actually holds up under pressure without paranoia, without fluff.
-
-
-            Practical cybersecurity for people who don’t want paranoia — they want control.
-
           </p>
-
-
-
 
           <div style="display:flex; gap:10px; flex-wrap:wrap;">
-
-
-          <div class="cta-row">
-
             <a class="btn ghost" href="/intel" data-route="/intel">Access Intel</a>
-
-
             <a class="btn primary" href="https://t.me/ghvstp" target="_blank" rel="noopener">Enter Ghost Protocol</a>
-
-
             <a class="btn" href="/connect" data-route="/connect">Book / Contact</a>
-
-
           </div>
-
-
-
-
 
           <div class="badges">
-
-
             <div class="badge">identity exposure</div>
-
-
             <div class="badge">dark web mitigation</div>
-
-
             <div class="badge">business posture</div>
-
-
             <div class="badge">operator hygiene</div>
-
-
-            <a class="btn primary" href="https://t.me/ghvstp" target="_blank">Enter Ghost Protocol</a>
-
-
-            <a class="btn" href="/connect" data-route="/connect">Contact</a>
-
           </div>
-
         </div>
-
-
 
         <div class="mini">
-
-
           <h3>What I do (simple)</h3>
-
-
-          <h3>What I do</h3>
-
           <ul>
-
-
             <li>Identify where your identity and access are leaking</li>
-
-
             <li>Build a clean security structure that fits your life</li>
-
-
             <li>Give you a repeatable system not random tips</li>
-
-
-            <li>Reduce identity & access exposure</li>
-
-
-            <li>Stabilize personal & business security</li>
-
-
-            <li>Build systems you can actually maintain</li>
-
           </ul>
-
-
           <div class="hr"></div>
-
-
           <p class="note">
-
-
             Ghost Protocol gets first access to heavy intel drops + deeper walkthroughs.
-
-
           </p>
-
         </div>
-
       </div>
-
     </section>
-
-
 
     <!-- INTEL -->
-
     <section class="section" id="intel">
-
-
       <div class="card">
-
-
         <div class="kicker">Intel</div>
-
-
         <h2>Briefings & practical drops</h2>
-
-
         <p>
-
-
           These are field notes: threat patterns, posture principles, and actionable fixes.
-
-
           Full-depth drops land in Ghost Protocol first.
-
-
         </p>
 
-
-
-
-
         <div class="split">
-
-
           <div class="mini">
-
-
             <h3>What you’ll get</h3>
-
-
             <ul>
-
-
               <li>Operator-level clarity without tech jargon</li>
-
-
               <li>Identity & exposure reduction frameworks</li>
-
-
               <li>Business security posture (SMB → enterprise mindset)</li>
-
-
               <li>Dark web mitigation in real-world terms</li>
-
-
             </ul>
-
-
           </div>
-
-
           <div class="mini">
-
-
             <h3>Start here</h3>
-
-
             <ul>
-
-
               <li>Clean your digital surface (accounts, routines, access)</li>
-
-
               <li>Reduce visibility before adding more tools</li>
-
-
               <li>Build friction where it matters (money, identity, admin)</li>
-
-
             </ul>
-
-
             <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
-
-
               <a class="btn primary" href="https://t.me/ghvstp" target="_blank" rel="noopener">Enter Ghost Protocol</a>
-
-
               <a class="btn" href="/consulting" data-route="/consulting">Get 1:1 help</a>
-
-
             </div>
-
-
           </div>
-
-
         </div>
-
-
-      <div class="card classified">
-
-
-        <h2>Intel Briefings</h2>
-
-
-        <p>Patterns, posture, and real-world fixes. No noise.</p>
-
-
-        <a class="btn primary" href="https://t.me/ghvstp" target="_blank">Enter Ghost Protocol</a>
-
       </div>
-
     </section>
-
-
 
     <!-- CONSULTING -->
-
     <section class="section" id="consulting">
-
       <div class="card">
-
-
         <div class="kicker">Consulting</div>
-
-
         <h2>1:1 sessions that build control fast</h2>
-
-
         <p>
-
-
           I’m not here to sell fear. I’m here to reduce exposure and stabilize access with a system you can maintain.
-
-
         </p>
 
-
-        <h2>Consulting</h2>
-
-
-
         <div class="split">
-
           <div class="mini">
-
-
   <h3>Custom 1:1 Courses</h3>
-
-
   <ul>
-
-
     <li>Personalized cybersecurity training built around your life or business</li>
-
-
     <li>Identity protection, dark web mitigation, OPSEC, and practical defense</li>
-
-
     <li>Beginner-friendly or operator-focused paced to you</li>
-
-
     <li>Structured modules, not random sessions</li>
-
-
   </ul>
-
-
 </div>
 
-
-            <h3>Identity Mitigation</h3>
-
-
-            <ul>
-
-
-              <li>Account exposure mapping</li>
-
-
-              <li>Takeover prevention</li>
-
-
-              <li>Recovery hardening</li>
-
-
-            </ul>
-
-
-          </div>
-
-
-
           <div class="mini">
-
-
             <h3>Identity Mitigation Session</h3>
-
-
-            <h3>Business Posture</h3>
-
             <ul>
-
-
               <li>Map your exposure (email, accounts, recovery paths)</li>
-
-
               <li>Stabilize access + reduce takeover risk</li>
-
-
               <li>Practical steps you can repeat</li>
-
-
-              <li>Admin & payment protection</li>
-
-
-              <li>Social engineering resistance</li>
-
-
-              <li>Operational hygiene</li>
-
             </ul>
-
           </div>
-
-
-
-
           <div class="mini">
-
-
             <h3>Business Posture Review</h3>
-
-
-            <h3>Custom 1:1 Courses</h3>
-
             <ul>
-
-
               <li>Admin access, payment workflows, quiet risks etc</li>
-
-
               <li>Social engineering resistance (process, not paranoia)</li>
-
-
               <li>Minimum complex controls that actually stick</li>
-
-
-              <li>Personal or business focused</li>
-
-
-              <li>Beginner → operator-level pacing</li>
-
-
-              <li>Structured modules</li>
-
             </ul>
-
           </div>
-
         </div>
-
-
-
-
 
         <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
-
-
           <a class="btn ghost" href="/connect" data-route="/connect">Request a consult</a>
-
-
           <a class="btn" href="/about" data-route="/about">Read my approach</a>
-
-
         </div>
-
       </div>
-
     </section>
-
-
 
     <!-- ABOUT -->
-
     <section class="section" id="about">
-
       <div class="card">
-
-
         <div class="kicker">About</div>
-
-
         <h2>Quiet competence over loud paranoia</h2>
-
-
-        <h2>About LuxeGhost</h2>
-
         <p>
-
-
           LuxeGhost is built around a simple doctrine: most people don’t lose to hackers, they lose to exposure, habits,
-
-
           and weak recovery surfaces. I fix the posture first, then the tools.
-
-
-          Most people don’t get breached by hackers — they get exposed by habits.
-
-
-          I fix posture first, tools second.
-
         </p>
-
-
-
-
 
         <div class="mini">
-
-
           <h3>Operating principles</h3>
-
-
           <ul>
-
-
             <li>Reduce visibility before adding complexity</li>
-
-
             <li>Security that fits real life, not theory</li>
-
-
             <li>Control beats reaction</li>
-
-
           </ul>
-
-
         </div>
-
       </div>
-
     </section>
-
-
 
     <!-- CONNECT -->
-
     <section class="section" id="connect">
-
       <div class="card">
-
-
         <div class="kicker">Connect</div>
-
-
         <h2>Contact + access</h2>
-
-
-        <h2>Connect</h2>
-
-
-
-
         <p>
-
-
           Want a quick consult, a structured course, or a targeted mitigation session? Start here.
-
-
-          TikTok:
-
-
-          <a href="https://tiktok.com/luxeghostx" target="_blank">tiktok.com/luxeghostx</a>
-
-
         </p>
-
-
-        <p>
-
-
-          YouTube:
-
-
-          <a href="https://youtube.com/@luxeghostx" target="_blank">youtube.com/@luxeghostx</a>
-
-
-        </p>
-
-
-        <p>
-
-
-          Email:
-
-
-          <a href="mailto:isne7@proton.me">isne7@proton.me</a>
-
-        </p>
-
-
-
-
 
         <div class="split">
-
-
           <div class="mini">
-
-
             <h3>Ghost Protocol</h3>
-
-
             <p class="note">Heavy intel drops + operator discussions.</p>
-
-
             <div style="margin-top:12px;">
-
-
               <a class="btn primary" href="https://t.me/ghvstp" target="_blank" rel="noopener">Enter Ghost Protocol</a>
-
-
             </div>
-
-
           </div>
-
-
           <div class="mini">
-
-
             <h3>Request help</h3>
-
-
             <p class="note">Replace the email below with your real contact.</p>
-
-
             <p style="margin:10px 0 0;">
-
-
               Email: <a class="pill" style="display:inline-flex" href="mailto:contact@luxeghost.com">contact@luxeghost.com</a>
-
-
             </p>
-
-
           </div>
-
-
         </div>
-
       </div>
-
     </section>
 
-
-
-
     <div class="footer">
-
-
       <div class="note">© <span id="year"></span> LuxeGhost. Control your exposure.</div>
-
-
       <div class="footlinks">
-
-
         <a class="pill" href="/" data-route="/">Home</a>
-
-
         <a class="pill" href="/intel" data-route="/intel">Intel</a>
-
-
         <a class="pill" href="/consulting" data-route="/consulting">Consulting</a>
-
-
         <a class="pill" href="/connect" data-route="/connect">Connect</a>
-
-
       </div>
-
-
     </div>
-
   </main>
 
-
-
-
   <script>
-
-
     // ===== LuxeGhost Single-File Router =====
-
-
     // This lets you click /intel etc (pushState + scroll) without separate pages.
-
-
     // IMPORTANT: direct visits to /intel require a host rewrite to /index.html (see note below).
 
-
-  <footer class="footer">
-
-
-    <span>© <span id="year"></span> LuxeGhost</span>
-
-
-  </footer>
-
-
-
-
     const routeToSection = {
-
-
-  <!-- ROUTER SCRIPT -->
-
-
-  <script>
-
-
-    const routes = {
-
       "/": "home",
-
       "/intel": "intel",
-
       "/consulting": "consulting",
-
       "/about": "about",
-
       "/connect": "connect"
-
     };
 
-
-
-
     function setActiveNav(pathname){
-
-
       document.querySelectorAll('[data-route]').forEach(a => {
-
-
         const p = a.getAttribute('data-route');
-
-
         if (!p) return;
-
-
         if (p === pathname) a.classList.add('active');
-
-
         else a.classList.remove('active');
-
-
       });
-
-
     }
-
-
-
-
 
     function scrollToRoute(pathname, {replace=false} = {}){
-
-
       const sectionId = routeToSection[pathname] || "home";
-
-
       const sectionEl = document.getElementById(sectionId);
 
-
-
-
-
       if (replace) history.replaceState({}, "", pathname);
-
-
       setActiveNav(pathname);
 
-
-
-
-
       if (sectionEl) {
-
-
         sectionEl.scrollIntoView({behavior:"smooth", block:"start"});
-
-
       } else {
-
-
         // fallback
-
-
         document.getElementById("home")?.scrollIntoView({behavior:"smooth", block:"start"});
-
-
       }
-
-
-    function nav(path){
-
-
-      const section = routes[path] || "home";
-
-
-      document.getElementById(section)?.scrollIntoView({behavior:"smooth"});
-
-
-      history.pushState({}, "", path);
-
     }
 
-
-
-
     // Intercept internal route clicks
-
-
     document.addEventListener("click", (e) => {
-
-
       const a = e.target.closest('a[data-route]');
-
-
       if (!a) return;
 
-
-
-
-
       const path = a.getAttribute("data-route");
-
-
       if (!path) return;
 
-
-
-
-
       e.preventDefault();
-
-
       history.pushState({}, "", path);
-
-
       scrollToRoute(path);
-
-
-    document.querySelectorAll("[data-route]").forEach(el=>{
-
-
-      el.addEventListener("click", e=>{
-
-
-        e.preventDefault();
-
-
-        nav(el.dataset.route);
-
-
-      });
-
     });
-
-
-
 
     // Back/forward navigation
-
-
     window.addEventListener("popstate", () => {
-
-
       scrollToRoute(location.pathname, {replace:true});
-
-
-    window.addEventListener("popstate", ()=>{
-
-
-      nav(location.pathname);
-
     });
-
-
-
 
     // On load: if we are on a known route, scroll there.
-
-
     // If the host doesn't rewrite /intel to /index.html, you will never reach this code.
-
-
     window.addEventListener("DOMContentLoaded", () => {
-
-
       document.getElementById("year").textContent = new Date().getFullYear();
-
-
       const path = location.pathname.replace(/\/+$/,"") || "/";
-
-
       const normalized = (path === "") ? "/" : path;
-
-
       // If visiting /intel etc and the host served index.html, route it:
-
-
       if (routeToSection[normalized]) scrollToRoute(normalized, {replace:true});
-
-
       else scrollToRoute("/", {replace:true});
-
-
     });
-
-
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-
-    nav(location.pathname);
-
   </script>
-
 </body>
-
-<html>
+</html>
 
 
 
