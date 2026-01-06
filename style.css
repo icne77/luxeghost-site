@@ -22,9 +22,29 @@ body {
   border-bottom: 1px solid #111;
 }
 
-.logo {
-  font-weight: 700;
-  letter-spacing: 2px;
+/* LuxeGhost Logo — FINAL */
+.logo-box{
+  width:42px;
+  height:42px;
+  border-radius:12px;
+  background:
+    url("/assets/logo.jpg") center / contain no-repeat,
+    linear-gradient(135deg, rgba(214,179,106,.18), rgba(122,162,255,.12));
+  border:1px solid rgba(214,179,106,.35);
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+  filter: saturate(0.95) contrast(1.08);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  .brand:hover .logo-box{
+  transform: translateY(-1px);
+  border-color: rgba(122,162,255,.5);
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.35),
+    0 0 0 6px rgba(122,162,255,.07),
+    0 0 22px rgba(214,179,106,.12);
+}
+
+}
+
 }
 
 .nav a {
