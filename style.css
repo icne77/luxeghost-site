@@ -117,3 +117,25 @@ footer {
   font-size: 12px;
   opacity: 0.6;
 }
+/* --- FORCE LOGO OVERRIDE (keep site style unchanged) --- */
+.brand .mark.logo-box{
+  background:
+    url("/assets/logo.jpg") center / contain no-repeat,
+    linear-gradient(135deg, rgba(214,179,106,.18), rgba(122,162,255,.12)) !important;
+  border: 1px solid rgba(214,179,106,.35) !important;
+  width: 42px !important;
+  height: 42px !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,.35) !important;
+  filter: saturate(0.95) contrast(1.08) !important;
+}
+
+/* Hover glow */
+.brand:hover .mark.logo-box{
+  transform: translateY(-1px);
+  border-color: rgba(122,162,255,.5) !important;
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.35),
+    0 0 0 6px rgba(122,162,255,.07),
+    0 0 22px rgba(214,179,106,.12) !important;
+}
