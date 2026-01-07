@@ -143,4 +143,14 @@ footer {
     url("/assets/logo.jpg") center / contain no-repeat,
     linear-gradient(135deg, rgba(214,179,106,.18), rgba(122,162,255,.12)) !important;
 }
+/* FINAL LOCK: ensure logo shows even if .mark had an old background */
+.brand .mark.logo-box{
+  background-image:
+    url("/assets/logo.jpg"),
+    linear-gradient(135deg, rgba(214,179,106,.18), rgba(122,162,255,.12)) !important;
+  background-position: center !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-color: transparent !important;
+}
 
