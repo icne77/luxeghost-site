@@ -535,6 +535,149 @@
 
 </section>
 
+      <!-- TESTIMONIALS -->
+<section class="section" id="testimonials">
+  <div class="card">
+    <div class="kicker">Testimonials</div>
+    <h2>Proof from the Field</h2>
+    <p>
+      Quiet results from clients applying my protocols, audis, and full-stack exposure reduction.
+    </p>
+
+    <!-- Slider Container -->
+    <div class="testimonial-wrapper">
+      <button class="nav-arrow left-arrow">&#10094;</button>
+
+      <div class="testimonial-slider">
+        
+        <!-- SLIDE 1 -->
+        <div class="mini testimonial-slide">
+          <h3>"I actually feel invisible now."</h3>
+          <p>
+            “He found the exposure points in my system in under an hour. After the hardening work, the stalking,
+            odd device behavior, and random logins stopped completely. This is the first time in years I’ve felt safe &
+            in control of my digital life.”
+          </p>
+          <div class="kicker">— Personal Client</div>
+        </div>
+
+        <!-- SLIDE 2 -->
+        <div class="mini testimonial-slide">
+          <h3>Business network locked down</h3>
+          <p>
+            “Our internal devices had 14 vulnerabilities across our network. He patched
+            everything, rebuilt the network structure, segmented our WiFi, and cleaned the entire attack surface.
+            We haven’t had a single breach alert since.”
+          </p>
+          <div class="kicker">— Business Security Client</div>
+        </div>
+
+        <!-- SLIDE 3 (HIGH PROFILE CLIENT) -->
+        <div class="mini testimonial-slide">
+          <h3>$15k/month online business secured</h3>
+          <p>
+            “He ran a full Ghost Protocol audit on my entire business stack — email infrastructure, payment
+            processors, device hygiene, browser isolation, account redundancies, backup flows, and exposure
+            mapping. He found things my previous ‘security guy’ completely missed. I run multiple businesses, and 
+            he secured my main one. Highly recommend!”
+          </p>
+          <div class="kicker">— Online Business Owner</div>
+        </div>
+
+        <!-- SLIDE 4 -->
+        <div class="mini testimonial-slide">
+          <h3>Crypto trading platform secured</h3>
+          <p>
+           "I really appreciate your clear communication & actionable insights you provided.Your professionalism 
+            & expertise stood out right away, especially in how you broke down each vulnerability. Your support
+            around Cloudflare configuration, HTTP header hardening & identifying external service misconfigs gave me a lot
+            more confidence in the overall security of our platform. Highly recommend your services to anyone looking to harden 
+            their websites defenses and stay ahead of potential threats."
+          </p>
+          <div class="kicker">— Trading Software Client</div>
+        </div>
+
+      </div>
+
+      <button class="nav-arrow right-arrow">&#10095;</button>
+    </div>
+  </div>
+</section>
+
+<style>
+/* Slider Layout */
+.testimonial-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.testimonial-slider {
+  display: flex;
+  transition: transform 0.5s ease;
+  width: 100%;
+}
+
+.testimonial-slide {
+  min-width: 100%;
+  box-sizing: border-box;
+  animation: slideIn 0.6s ease;
+}
+
+/* Slide animation */
+@keyframes slideIn {
+  from { transform: translateX(40px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Arrows */
+.nav-arrow {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  backdrop-filter: blur(5px);
+  transition: 0.2s;
+}
+
+.nav-arrow:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+.left-arrow {
+  margin-right: 10px;
+}
+
+.right-arrow {
+  margin-left: 10px;
+}
+</style>
+
+<script>
+let currentSlide = 0;
+const slides = document.querySelectorAll(".testimonial-slide");
+const slider = document.querySelector(".testimonial-slider");
+
+function updateSlide() {
+  slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+}
+
+document.querySelector(".right-arrow").onclick = () => {
+  currentSlide = (currentSlide + 1) % slides.length;
+  updateSlide();
+};
+
+document.querySelector(".left-arrow").onclick = () => {
+  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+  updateSlide();
+};
+</script>
+
     <!-- ABOUT -->
     <section class="section" id="about">
       <div class="card">
